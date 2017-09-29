@@ -32,6 +32,8 @@ class Permission
         if (Auth::guard('admin')->user()->cannot($permission)) {
             static::error();
         }
+        
+        return;
     }
 
     /**
@@ -50,6 +52,8 @@ class Permission
         if (!Auth::guard('admin')->user()->inRoles($roles)) {
             static::error();
         }
+        
+        return false;
     }
 
     /**
@@ -68,6 +72,8 @@ class Permission
         if (Auth::guard('admin')->user()->inRoles($roles)) {
             static::error();
         }
+        
+        return false;
     }
 
     /**
